@@ -1,0 +1,328 @@
+@import url(reset.css);
+@import url(chocolat.css);
+@import url(flexslider.css);
+
+/* VARIABLES */
+@small-screen: 460px;
+@medium-screen: 786px;
+@big-screen: 1000px;
+@large-screen: 1280px;
+
+@margin: 1em;
+@padding: 0.4em;
+
+@link-color: #007d7e;
+@link-color-visited: #018789;
+
+@body-font: Open Sans, Helvetica Neue, Helvetica, sans-serif;
+@header-font: futura, Helvetica Neue, Helvetica, sans-serif;
+
+/* MIXINS */
+
+.border{ border: 5px solid white; }
+.border-bottom{ border-bottom: 2px solid #ccc; }
+
+/* ANIMATIONS */
+.gallery a{
+	transition: opacity 0.2s ease-out;
+	-webkit-transition: opacity 0.2s ease-out;
+}
+.content{
+	transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+}
+
+/* HTML ENTITIES */
+body{
+	background: #fff;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	min-width: 320px;
+	margin: 0;
+	padding: 0;
+}
+
+body, input, textarea, table {
+	font-family: @body-font;
+	font-size: 13px;
+	color: #000;
+	line-height: 1.4em;
+}
+h1{
+	font-size: 2.6em;
+}
+h1,
+h2,
+h3,
+h4 {
+	line-height: 1.3em;
+	font-family: @header-font;
+}
+
+h2 {
+	font-size: 1.4em;
+	margin-bottom: @margin;
+	letter-spacing: 0.5px;
+	color: #999;
+}
+h3 {
+	font-size: 1.4em;
+}
+h4 {
+	font-size: 1.2em;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+h5{
+	font-size: 1.2em;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	padding: 0.5em 0;
+}
+
+ol li { margin: 0 0 0 3em;  }
+ul li {
+	margin: 0 0 0 0;
+	display: list-item;
+}
+ol li {
+	margin: 0 0 0 3em;
+	display: list-item;
+	list-style: decimal;
+}
+em { font-style: italic; }
+a{
+	color: black;
+	text-decoration: none;
+
+	&:hover{ color: #009495; }
+	&:visited,
+	&:active{ opacity: 0.9; }
+}
+p{
+	margin-bottom: @margin*0.7;
+
+	a{
+		color: @link-color;
+		&:visited{ color: @link-color-visited; }
+		&:hover{ opacity: 0.7; }
+		&:active{ opacity: 0.9; }
+	}
+}
+
+strong{
+	font-weight: bold;
+}
+.fluid-width-video-wrapper{
+	max-width: 99.5% !important;
+}
+
+/* STRUCTURE */
+
+#page{
+	width: 92%; max-width: 1400px;
+	position: relative;
+	margin: 0 auto;
+	padding: 1em 4%;
+}
+header{
+	margin-bottom: @margin*4;
+	margin-top: @margin*2.5;
+	text-align: left;
+	width: 100%;
+}
+aside{
+	width: auto; min-width: 200px;
+	margin-bottom: @margin*2;
+
+	@media all and (min-width: @small-screen){
+		// padding-right: 1%;
+		// float: left;
+		// width: 19%;
+	}
+	@media all and (min-width: @medium-screen){
+		width: 19%;
+		padding-right: 1%;
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+.content-container{
+	min-height: 500px;
+	display: inline-block;
+	vertical-align: top;
+}
+.content {
+	padding: 0;
+	width: auto;
+	margin: 0;
+
+	@media all and (max-width: @medium-screen){
+		margin-top: @margin;
+	}
+	@media all and (min-width: @medium-screen){
+		max-width: 900px;
+	}
+	img{
+		padding: @padding 0;
+		max-width: 100%;
+		height: auto;
+	}
+	.gallery{
+		a{
+			width: 48.3%;
+			display: inline-block;
+			padding: 0 @padding @padding*2 0;
+
+			@media all and (min-width: @small-screen){
+			}
+			@media all and (min-width: @medium-screen){
+				width: 32%;
+			}
+			@media all and (min-width: @big-screen){
+				width: 24.19%;
+			}
+			&:hover{
+				opacity: 0.9;
+			}
+		}
+		img{
+			padding: 0;
+		}
+	}
+	&.ajax{
+		transform: translateY(10px);
+		-webkit-transform: translateY(10px);
+	}
+}
+.box{
+	margin-bottom: 3em;
+	padding-bottom: 1em;
+	.border-bottom;
+
+	.thumbnail{
+		margin-right: @margin*1.5;
+		@media all and (min-width: @small-screen){
+			float: left;
+		}
+	}
+	.body{
+	}
+}
+nav{
+	margin-top: @margin*0.5;
+
+	a{
+		font-family: @header-font;
+		line-height: 2em;
+		display: table;
+		padding-bottom: @padding*0.1;
+		margin-bottom: @padding*0.8;
+		border-bottom: 2px solid transparent;
+	}
+	.current{
+		border-bottom: 2px solid black;
+	}
+	.parent{
+		border-bottom: 2px solid @link-color;
+	}
+}
+#logo {
+  	margin:@padding*0.5 0 @padding;
+  	display: inline-block;
+
+	h1{
+		font-size: 2.4em;
+	}
+}
+
+#footer {
+	margin: @margin*2 0 @margin;
+}
+
+/* CLASSES */
+
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+
+/**
+ * The edit link that appears when you are logged in.
+ * It is recommended that you implement an edit button
+ * in your templates to make it easy to switch to and
+ * from the admin control panel when editing pages.
+ *
+ */
+#editpage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 5px 6px;
+	background: #db1174;
+	color: #fff;
+	display: block;
+	font-weight: bold;
+}
+	#editpage:hover {
+		background: #ffffcc;
+		color: #000;
+	}
+
+
+/**
+ * Alignment styles that are used by the InputfieldTinyMCE for
+ * positioning images in bodycopy. If you are using this field type,
+ * you may want to include these or similar styles in your site.
+ *
+ */
+.align_left {
+        float: left;
+        margin: 0 1em 0.25em 0;
+}
+
+.align_right {
+        float: right;
+        margin: 0 0 0.25em 1em;
+}
+
+.align_center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+}
+.no-opacity{
+	opacity: 0;
+}
+
+.next{
+	text-align: right;
+	margin: @margin*2 0;
+	a{
+		color: @link-color;
+	}
+
+	@media all and (min-width: @medium-screen){
+		float: right;
+	}
+}
+
+
+/**
+ * WireFatalError is a class that ProcessWire will use to output
+ * fatal errors in the design, but only if debug mode is on, or if
+ * you are logged in as a superuser.
+ *
+ */
+.WireFatalError {
+	background: #a30000;
+	color: #fff;
+	padding: 1em;
+	position: relative;
+	z-index: 9999;
+}
